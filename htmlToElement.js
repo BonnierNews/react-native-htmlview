@@ -91,12 +91,12 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
 
         let linkPressHandler = null;
         let linkLongPressHandler = null;
-        if (node.name === 'a' && node.attribs) {
+        if (node.name === 'a' && node.attribs && node.attribs.href) {
           linkPressHandler = () =>
-            opts.linkHandler(entities.decodeHTML(node.attribs));
+            opts.linkHandler(node.attribs);
           if (opts.linkLongPressHandler) {
             linkLongPressHandler = () =>
-              opts.linkLongPressHandler(entities.decodeHTML(node.attribs));
+              opts.linkLongPressHandler(node.attribs);
           }
         }
 
