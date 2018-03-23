@@ -52,8 +52,8 @@ class HtmlView extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value || this.props.stylesheet !== nextProps.stylesheet || this.props.textComponentProps !== nextProps.textComponentProps) {
-      this.startHtmlRender(nextProps.value, nextProps.stylesheet, nextProps.textComponentProps);
+    if (this.props.value !== nextProps.value || this.props.stylesheet !== nextProps.stylesheet || this.props.textComponentProps !== nextProps.textComponentProps || this.props.fontScale !== nextProps.fontScale) {
+      this.startHtmlRender(nextProps.value, nextProps.stylesheet, nextProps.textComponentProps, nextProps.fontScale);
     }
   }
 
@@ -61,15 +61,17 @@ class HtmlView extends PureComponent {
     this.mounted = false;
   }
 
-  startHtmlRender(value, style, textComponentProps) {
+  startHtmlRender(value, style, textComponentProps, fontScale) {
     const {
       addLineBreaks,
       onLinkPress,
       onLinkLongPress,
       stylesheet,
       renderNode,
-      onError,
+      onError
     } = this.props;
+
+    if (!fontScale) fontScale = this.props.fontScale || 1
 
     if (!value) {
       this.setState({element: null});
@@ -81,6 +83,7 @@ class HtmlView extends PureComponent {
       linkLongPressHandler: onLinkLongPress,
       styles: {...baseStyles, ...stylesheet, ...style},
       customRenderer: renderNode,
+      fontScale
     };
 
     htmlToElementOptKeys.forEach(key => {
@@ -144,6 +147,7 @@ HtmlView.propTypes = {
   TextComponent: PropTypes.func,
   textComponentProps: PropTypes.object,
   value: PropTypes.string,
+  fontScale: PropTypes.number
 };
 
 HtmlView.defaultProps = {
@@ -152,6 +156,7 @@ HtmlView.defaultProps = {
   onLinkLongPress: null,
   onError: console.error.bind(console),
   RootComponent: View,
+  fontScale: 1
 };
 
 export default HtmlView;

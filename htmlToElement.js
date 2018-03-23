@@ -67,17 +67,25 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
         if (rendered || rendered === null) return rendered;
       }
 
-      const {TextComponent} = opts;
+      const {TextComponent, fontScale} = opts;
 
       if (node.type === 'text') {
         const defaultStyle = opts.textComponentProps ? opts.textComponentProps.style : null;
         const customStyle = inheritedStyle(parent);
+        let mergedStyle = Object.assign({}, defaultStyle && StyleSheet.flatten(defaultStyle), customStyle)
+        if (mergedStyle.fontSize) {
+          const newFontSize = mergedStyle.fontSize * fontScale
+          mergedStyle = Object.assign({}, mergedStyle, {
+            fontSize: newFontSize,
+            linkHeight: (mergedStyle.lineHeight && mergedStyle.lineHeight * fontScale) || newFontSize * 1.1
+          })
+        }
 
         return (
           <TextComponent
             {...opts.textComponentProps}
             key={index}
-            style={[defaultStyle, customStyle]}
+            style={mergedStyle}
           >
             {entities.decodeHTML(node.data)}
           </TextComponent>
