@@ -77,7 +77,7 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
           const newFontSize = mergedStyle.fontSize * fontScale
           mergedStyle = Object.assign({}, mergedStyle, {
             fontSize: newFontSize,
-            linkHeight: (mergedStyle.lineHeight && mergedStyle.lineHeight * fontScale) || newFontSize * 1.1
+            lineHeight: (mergedStyle.lineHeight && mergedStyle.lineHeight * fontScale) || newFontSize * 1.1
           })
         }
 
