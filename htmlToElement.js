@@ -67,6 +67,8 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
         if (rendered || rendered === null) return rendered;
       }
 
+      if (!node) return null;
+
       const {TextComponent, fontScale} = opts;
 
       if (node.type === 'text') {
