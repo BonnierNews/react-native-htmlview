@@ -52,8 +52,8 @@ class HtmlView extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.value !== nextProps.value || this.props.stylesheet !== nextProps.stylesheet || this.props.textComponentProps !== nextProps.textComponentProps || this.props.fontScale !== nextProps.fontScale) {
-      this.startHtmlRender(nextProps.value, nextProps.stylesheet, nextProps.textComponentProps, nextProps.fontScale);
+    if (this.props.value !== nextProps.value || this.props.stylesheet !== nextProps.stylesheet || this.props.textComponentProps !== nextProps.textComponentProps || this.props.fontScale !== nextProps.fontScale || this.props.nodeComponentProps !== nextProps.nodeComponentProps) {
+      this.startHtmlRender(nextProps.value, nextProps.stylesheet, nextProps.textComponentProps, nextProps.fontScale, nextProps.nodeComponentProps);
     }
   }
 
@@ -61,7 +61,7 @@ class HtmlView extends PureComponent {
     this.mounted = false;
   }
 
-  startHtmlRender(value, style, textComponentProps, fontScale) {
+  startHtmlRender(value, style, textComponentProps, fontScale, nodeComponentProps) {
     const {
       addLineBreaks,
       onLinkPress,
@@ -94,6 +94,10 @@ class HtmlView extends PureComponent {
 
     if (textComponentProps) {
       opts.textComponentProps = textComponentProps;
+    }
+
+    if (nodeComponentProps) {
+      opts.nodeComponentProps = nodeComponentProps;
     }
 
     htmlToElement(value, opts, (err, element) => {
