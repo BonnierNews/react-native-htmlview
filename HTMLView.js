@@ -6,6 +6,7 @@ import {Linking, Platform, StyleSheet, View, ViewPropTypes} from 'react-native';
 const boldStyle = {fontWeight: '500'};
 const italicStyle = {fontStyle: 'italic'};
 const underlineStyle = {textDecorationLine: 'underline'};
+const strikethroughStyle = {textDecorationLine: 'line-through'};
 const codeStyle = {fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace'};
 
 const baseStyles = StyleSheet.create({
@@ -14,6 +15,8 @@ const baseStyles = StyleSheet.create({
   i: italicStyle,
   em: italicStyle,
   u: underlineStyle,
+  s: strikethroughStyle,
+  strike: strikethroughStyle,
   pre: codeStyle,
   code: codeStyle,
   a: {
@@ -159,7 +162,7 @@ HtmlView.defaultProps = {
   onLinkPress: url => Linking.openURL(url),
   onLinkLongPress: null,
   onError: console.error.bind(console),
-  RootComponent: View,
+  RootComponent: element => <View {...element} />, // eslint-disable-line react/display-name
   fontScale: 1
 };
 
