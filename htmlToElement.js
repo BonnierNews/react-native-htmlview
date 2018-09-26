@@ -154,12 +154,17 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
 
         const {NodeComponent, styles} = opts;
 
+        let style = node && !node.parent && node.name && styles ? styles[node.name] : null;
+        if (styles && styles['paragraphDivider'] && index < dom.length - 1 && node.name && node.name === 'p') {
+           style = [styles['paragraphDivider'], style];
+        }
+
         return (
           <NodeComponent
             {...opts.nodeComponentProps}
             key={index}
             onPress={linkPressHandler}
-            style={node && !node.parent && node.name && styles ? styles[node.name] : null}
+            style={style}
             onLongPress={linkLongPressHandler}
           >
             {linebreakBefore}
