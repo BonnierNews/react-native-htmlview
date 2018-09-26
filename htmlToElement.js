@@ -154,9 +154,9 @@ export default function htmlToElement(rawHtml, customOpts = {}, done) {
 
         const {NodeComponent, styles} = opts;
 
-        let style = node && !node.parent && node.name && styles ? styles[node.name] : null
+        let style = node && !node.parent && node.name && styles ? styles[node.name] : null;
         if (styles && styles['paragraphDivider'] && index < dom.length - 1 && node.name && node.name === 'p') {
-           style = [styles['paragraphDivider'], style]
+           style = [styles['paragraphDivider'], style];
         }
 
         return (
