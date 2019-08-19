@@ -104,7 +104,7 @@ exports[`<Example/> should render 1`] = `
                     null,
                     Object {
                       "fontStyle": "italic",
-                      "fontWeight": "500",
+                      "fontWeight": "bold",
                     },
                   ]
                 }
@@ -198,7 +198,7 @@ exports[`<Example/> should render 1`] = `
                       null,
                       Object {
                         "fontStyle": "italic",
-                        "fontWeight": "500",
+                        "fontWeight": "bold",
                       },
                     ]
                   }
@@ -270,7 +270,7 @@ exports[`<Example/> should render 1`] = `
                     null,
                     Object {
                       "color": "#007AFF",
-                      "fontWeight": "500",
+                      "fontWeight": "bold",
                     },
                   ]
                 }
@@ -363,7 +363,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 36,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
@@ -407,7 +407,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 30,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
@@ -451,7 +451,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 24,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
@@ -495,7 +495,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 18,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
@@ -539,7 +539,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
@@ -583,7 +583,7 @@ exports[`<Example/> should render 1`] = `
                   null,
                   Object {
                     "fontSize": 12,
-                    "fontWeight": "500",
+                    "fontWeight": "bold",
                   },
                 ]
               }
